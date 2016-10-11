@@ -1,5 +1,7 @@
 package com.waa.resources;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.waa.data.entity.Member;
 import com.waa.data.entity.Team;
+import com.waa.data.service.MemberService;
 import com.waa.data.service.TeamService;
 
 @RestController
@@ -21,6 +25,9 @@ public class TeamResource {
 	@Autowired
 	private TeamService teamService;
 	
+	@Autowired
+	private MemberService memberService;
+	
 	@RequestMapping(method=RequestMethod.PUT)			
 	public Team createTeam(@Valid @RequestBody Team team){
 		return teamService.create(team);
@@ -28,13 +35,27 @@ public class TeamResource {
 	
 	@RequestMapping(method=RequestMethod.POST,
 			value="/{id}")
-	public Team updateTeam(@RequestParam("id") String teamId, @Valid @RequestBody Team team){
+	public Team updateTeam(@RequestParam("id") String id, @Valid @RequestBody Team team){
 		return teamService.update(team);
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE,
 			value="/{id}")
-	public Team deleteTeam(@RequestParam("id") String teamId, @Valid @RequestBody Team team){
-		return teamService.update(team);
+	public Team deleteTeam(@RequestParam("id") String id, @Valid @RequestBody Team team){
+		return teamService.delete(team);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET,
+			value="/{id}/members")			
+	public List<Member> getMembers(@RequestParam("id") String id){
+		Team team = teamService.fetchById(id);
+		return team.getTeamMembers();
+	}
+
+	@RequestMapping(method=RequestMethod.PUT,
+			value="/{id}/member")			
+	public Member addMember(@RequestParam("id") String id, @Valid @RequestBody Member member){
+		Team team = teamService.fetchById(id);
+		return memberService.create(team, member);
 	}
 }

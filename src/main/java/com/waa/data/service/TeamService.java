@@ -9,6 +9,10 @@ import com.waa.data.entity.Team;
 
 @Service
 public class TeamService {
+
+	public Team fetchById(String id){
+		return null;
+	}
 	
 	public Team create(Team team){
 		team.set_id(UUID.randomUUID().toString());
@@ -19,6 +23,10 @@ public class TeamService {
 	
 	public Team update(Team team){
 		team.setUpdatedDate(LocalDateTime.now());
+		return team;
+	}
+	
+	public Team delete(Team team){
 		return team;
 	}
 }
