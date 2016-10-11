@@ -7,8 +7,10 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication  
+@SpringBootApplication 
+@ComponentScan("com.waa")
 public class WalkAcrossAmericaApplication
 {
     private static Log log = LogFactory.getLog(WalkAcrossAmericaApplication.class);
@@ -23,6 +25,5 @@ public class WalkAcrossAmericaApplication
         for (String beanName : beanNames) {
             log.debug(beanName);
         }
-        log.info("Started WalkAcrossAmericaApplication");
     }
 }
