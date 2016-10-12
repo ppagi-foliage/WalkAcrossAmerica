@@ -2,12 +2,16 @@ package com.waa.core.entity;
 
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 public class Member extends Person{
 	enum TeamMemberRole{TEAM_LEAD,TEAM_MEMBER};
 	private Team team;
 	
+	@NotNull
 	private Boolean isActive;
 	
+	@NotNull
 	private TeamMemberRole role;
 	
 	private List<Step> steps;

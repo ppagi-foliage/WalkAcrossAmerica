@@ -2,9 +2,13 @@ package com.waa.core.entity;
 
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.NotNull;
+
 public class User extends Person{
+	@NotNull
     private String username;
     
+	@NotNull
     private String password;
     
     private LocalDateTime lastLoginDateTime;
@@ -13,6 +17,7 @@ public class User extends Person{
     
     private Integer totalFailCount;
     
+    @NotNull
     private Boolean isActive;
 
 	public String getUsername() {

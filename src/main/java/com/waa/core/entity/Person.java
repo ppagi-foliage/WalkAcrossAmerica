@@ -2,15 +2,22 @@ package com.waa.core.entity;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotNull;
+
 public class Person extends DbEntity{
+	@NotNull
     private String firstName;
     
+	@NotNull
     private String lastName;   
     
+	@NotNull
     private LocalDate birthDate;
     
+	@NotNull
     private String phone;
     
+	@NotNull
     private String emailId;
 
 	public String getFirstName() {

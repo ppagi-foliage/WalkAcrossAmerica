@@ -2,11 +2,16 @@ package com.waa.core.entity;
 
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.NotNull;
+
 public class Step extends DbEntity{
+	@NotNull
 	private Integer stepCount;
 	
+	@NotNull
 	private LocalDateTime startDateTime;
 	
+	@NotNull
 	private LocalDateTime endDateTime;
 	
 	public Integer getStepCount() {
