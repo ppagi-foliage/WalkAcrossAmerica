@@ -1,4 +1,4 @@
-package com.waa.data.entity;
+package com.waa.core.entity;
 
 import java.time.LocalDateTime;
 

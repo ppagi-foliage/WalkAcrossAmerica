@@ -1,4 +1,4 @@
-package com.waa.resources;
+package com.waa.core.resources;
 
 import javax.validation.Valid;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.waa.data.entity.Step;
-import com.waa.data.service.StepService;
+import com.waa.core.entity.Step;
+import com.waa.core.service.StepService;
 
 
 @RestController

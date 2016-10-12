@@ -1,9 +1,9 @@
-package com.waa.data.service;
+package com.waa.core.service;
 
 import java.time.LocalDateTime;
 
-import com.waa.data.entity.Member;
-import com.waa.data.entity.Team;
+import com.waa.core.entity.Member;
+import com.waa.core.entity.Team;
 
 public class MemberService {
 	public Member fetchById(String id){

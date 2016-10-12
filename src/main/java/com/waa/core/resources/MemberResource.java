@@ -1,4 +1,4 @@
-package com.waa.resources;
+package com.waa.core.resources;
 
 import java.util.List;
 
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.waa.data.entity.Member;
-import com.waa.data.entity.Step;
-import com.waa.data.service.MemberService;
-import com.waa.data.service.StepService;
+import com.waa.core.entity.Member;
+import com.waa.core.entity.Step;
+import com.waa.core.service.MemberService;
+import com.waa.core.service.StepService;
 
 @RestController
 @RequestMapping(value="/member",

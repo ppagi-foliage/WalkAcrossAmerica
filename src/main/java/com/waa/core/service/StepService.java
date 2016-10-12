@@ -1,10 +1,10 @@
-package com.waa.data.service;
+package com.waa.core.service;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import com.waa.data.entity.Member;
-import com.waa.data.entity.Step;
+import com.waa.core.entity.Member;
+import com.waa.core.entity.Step;
 
 public class StepService {
 	public Step fetchById(String id){

@@ -1,11 +1,11 @@
-package com.waa.data.service;
+package com.waa.core.service;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import com.waa.data.entity.Team;
+import com.waa.core.entity.Team;
 
 @Service
 public class TeamService {

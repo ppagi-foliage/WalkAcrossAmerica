@@ -1,4 +1,4 @@
-package com.waa.resources;
+package com.waa.core.resources;
 
 import java.util.List;
 
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.waa.data.entity.Member;
-import com.waa.data.entity.Team;
-import com.waa.data.service.MemberService;
-import com.waa.data.service.TeamService;
+import com.waa.core.entity.Member;
+import com.waa.core.entity.Team;
+import com.waa.core.service.MemberService;
+import com.waa.core.service.TeamService;
 
 @RestController
 @RequestMapping(value="/team",
