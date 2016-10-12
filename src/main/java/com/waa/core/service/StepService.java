@@ -3,9 +3,12 @@ package com.waa.core.service;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import org.springframework.stereotype.Service;
+
 import com.waa.core.entity.Member;
 import com.waa.core.entity.Step;
 
+@Service
 public class StepService {
 	public Step fetchById(String id){
 		return null;

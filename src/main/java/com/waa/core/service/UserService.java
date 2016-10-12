@@ -1,24 +1,28 @@
 package com.waa.core.service;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.waa.core.entity.User;
+import com.waa.core.entity.dao.UserRepository;
 
+@Service
 public class UserService {
+	@Autowired UserRepository userRepository;
 	public User register(User user){
-		user.set_id(UUID.randomUUID().toString());
-		user.setCreatedDate(LocalDateTime.now());
-		user.setUpdatedDate(LocalDateTime.now());
+		user.assignIdAndCreatedDateAndUpdatedDate();
+		userRepository.save(user);
 		return user;
 	}
 	
 	public User update(User user){
-		user.setUpdatedDate(LocalDateTime.now());
+		user.setUpdatedDate();
+		userRepository.save(user);
 		return user;
 	}
 	
 	public User delete(User user){
+		userRepository.delete(user);
 		return user;
 	}
 }
