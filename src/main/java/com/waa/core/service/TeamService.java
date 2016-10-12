@@ -1,32 +1,33 @@
 package com.waa.core.service;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.waa.core.entity.Team;
+import com.waa.core.entity.dao.TeamRepository;
 
 @Service
 public class TeamService {
-
+	@Autowired TeamRepository teamRepository;
+	
 	public Team fetchById(String id){
-		return null;
+		return teamRepository.findOne(id);
 	}
 	
 	public Team create(Team team){
-		team.set_id(UUID.randomUUID().toString());
-		team.setCreatedDate(LocalDateTime.now());
-		team.setUpdatedDate(LocalDateTime.now());
+		team.assignIdAndCreatedDateAndUpdatedDate();
+		teamRepository.save(team);
 		return team;
 	}
 	
 	public Team update(Team team){
-		team.setUpdatedDate(LocalDateTime.now());
+		team.setUpdatedDate();
+		teamRepository.save(team);
 		return team;
 	}
 	
 	public Team delete(Team team){
+		teamRepository.delete(team);
 		return team;
 	}
 }

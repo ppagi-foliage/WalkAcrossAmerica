@@ -4,6 +4,9 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Member extends Person{
 	enum TeamMemberRole{TEAM_LEAD,TEAM_MEMBER};
 	private Team team;

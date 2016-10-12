@@ -1,28 +1,33 @@
 package com.waa.core.service;
 
-import java.time.LocalDateTime;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.waa.core.entity.Member;
 import com.waa.core.entity.Team;
+import com.waa.core.entity.dao.MemberRepository;
 
 @Service
 public class MemberService {
+	@Autowired MemberRepository memberRepository;  
+	
 	public Member fetchById(String id){
-		return null;
+		return memberRepository.findOne(id);
 	}
 	
-	public Member create(Team team, Member member){		
-		return member;
+	public Member create(Team team, Member member){
+		member.assignIdAndCreatedDateAndUpdatedDate();
+		member.setTeam(team);
+		return memberRepository.save(member);
 	}
 	
 	public Member update(Member member){
-		member.setUpdatedDate(LocalDateTime.now());
-		return member;
+		member.setUpdatedDate();
+		return memberRepository.save(member);
 	}
 	
 	public Member delete(Member member){
+		memberRepository.delete(member);
 		return member;
 	}
 }

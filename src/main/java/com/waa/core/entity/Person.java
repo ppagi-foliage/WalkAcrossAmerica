@@ -4,6 +4,9 @@ import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Person extends DbEntity{
 	@NotNull
     private String firstName;
@@ -11,7 +14,6 @@ public class Person extends DbEntity{
 	@NotNull
     private String lastName;   
     
-	@NotNull
     private LocalDate birthDate;
     
 	@NotNull

@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class User extends Person{
 	@NotNull
     private String username;

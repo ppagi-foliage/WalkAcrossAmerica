@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,14 +43,14 @@ public class MemberResource {
 	
 	@RequestMapping(method=RequestMethod.GET,
 			value="/{id}/steps")			
-	public List<Step> getSteps(@RequestParam("id") String id){
+	public List<Step> getSteps(@PathVariable("id") String id){
 		Member member = memberService.fetchById(id);
 		return member.getSteps();
 	}
 
 	@RequestMapping(method=RequestMethod.PUT,
 			value="/{id}/step")			
-	public Step addStep(@RequestParam("id") String id, @Valid @RequestBody Step step){
+	public Step addStep(@PathVariable("id") String id, @Valid @RequestBody Step step){
 		Member member = memberService.fetchById(id);
 		return stepService.create(member, step);
 	}
