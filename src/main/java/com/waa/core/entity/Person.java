@@ -12,8 +12,9 @@ public class Person extends DbEntity{
     private String firstName;
     
 	@NotNull
-    private String lastName;   
-    
+    private String lastName; 
+	
+    @NotNull
     private LocalDate birthDate;
     
 	@NotNull
