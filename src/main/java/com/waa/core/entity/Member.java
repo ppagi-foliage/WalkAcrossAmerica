@@ -1,14 +1,20 @@
 package com.waa.core.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Document
 public class Member extends Person{
 	enum TeamMemberRole{TEAM_LEAD,TEAM_MEMBER};
+	@DBRef
+	@JsonIgnore
 	private Team team;
 	
 	@NotNull
@@ -17,7 +23,8 @@ public class Member extends Person{
 	@NotNull
 	private TeamMemberRole role;
 	
-	private List<Step> steps;
+	@DBRef
+	private List<Step> steps = new ArrayList<Step>();
 
 	public Team getTeam() {
 		return team;

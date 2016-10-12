@@ -1,9 +1,12 @@
 package com.waa.core.entity;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -14,8 +17,9 @@ public class Team extends DbEntity{
 	@NotNull
 	private String description;
 	
-	private List<Member> teamMembers;
-
+	@DBRef
+	private List<Member> teamMembers = new ArrayList<Member>();
+	
 	public String getName() {
 		return name;
 	}
