@@ -30,7 +30,7 @@ public class TeamResource {
 	private MemberService memberService;
 	
 	@RequestMapping(method=RequestMethod.GET,
-			produces=MediaType.APPLICATION_JSON_VALUE)		
+			consumes=MediaType.ALL_VALUE)
 	public List<Team> getAllTeams(){	
 		return teamService.fetchAllTeams();
 	}
