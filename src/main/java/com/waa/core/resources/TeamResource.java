@@ -29,6 +29,11 @@ public class TeamResource {
 	@Autowired
 	private MemberService memberService;
 	
+	@RequestMapping(method=RequestMethod.GET)		
+	public List<Team> getAllTeams(){	
+		return teamService.fetchAllTeams();
+	}
+	
 	@RequestMapping(method=RequestMethod.PUT)			
 	public Team createTeam(@Valid @RequestBody Team team){
 		return teamService.create(team);

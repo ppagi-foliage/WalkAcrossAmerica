@@ -1,5 +1,7 @@
 package com.waa.core.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,10 @@ public class TeamService {
 	
 	public Team fetchById(String id){
 		return teamRepository.findOne(id);
+	}
+	
+	public List<Team> fetchAllTeams(){
+		return teamRepository.findAll();
 	}
 	
 	public Team create(Team team){
