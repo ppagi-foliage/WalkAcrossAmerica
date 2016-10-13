@@ -29,7 +29,8 @@ public class TeamResource {
 	@Autowired
 	private MemberService memberService;
 	
-	@RequestMapping(method=RequestMethod.GET)		
+	@RequestMapping(method=RequestMethod.GET,
+			produces=MediaType.APPLICATION_JSON_VALUE)		
 	public List<Team> getAllTeams(){	
 		return teamService.fetchAllTeams();
 	}
