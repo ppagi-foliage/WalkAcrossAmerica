@@ -53,7 +53,8 @@ public class TeamResource {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET,
-			value="/{id}/members")			
+			value="/{id}/members",
+			consumes=MediaType.ALL_VALUE)			
 	public List<Member> getMembers(@PathVariable("id") String id){
 		Team team = teamService.fetchById(id);
 		return team.getTeamMembers();

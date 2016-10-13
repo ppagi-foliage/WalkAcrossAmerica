@@ -42,7 +42,8 @@ public class MemberResource {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET,
-			value="/{id}/steps")			
+			value="/{id}/steps",
+			consumes=MediaType.ALL_VALUE)			
 	public List<Step> getSteps(@PathVariable("id") String id){
 		Member member = memberService.fetchById(id);
 		return member.getSteps();
