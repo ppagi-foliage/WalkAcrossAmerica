@@ -2,6 +2,7 @@ package com.waa.rest.resources;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -77,6 +78,26 @@ public class TeamResource {
 			// Co-ordinate calculations			
 			Double x = startLatitude+(location.getTotalStepCount())*(endLatitude - startLatitude) / totalSteps;
 			Double y = startLongitude+(location.getTotalStepCount())*(endLongitude - startLongitude) / totalSteps;
+			location.setLatitude(x);
+			location.setLongitude(y);
+			locations.add(location);
+		}
+		return locations;
+	}
+	
+	@RequestMapping(method=RequestMethod.GET,
+			consumes=MediaType.ALL_VALUE,value="/tracks")
+	public List<Location> getTrackLocations(){	
+		List<Location> locations = new ArrayList<Location>();
+		int stepSize = 100000;
+		int totalTrackCount = totalSteps/stepSize;
+		
+		for(int i=0;i<totalTrackCount;i++){
+			Location location = new Location();
+			Double x = startLatitude+( i * stepSize)*(endLatitude - startLatitude) / totalSteps;
+			Double y = startLongitude+(i * stepSize)*(endLongitude - startLongitude) / totalSteps;
+			location.setTeamId(UUID.randomUUID().toString());
+			location.setTeamName("Tracker Path "+i);
 			location.setLatitude(x);
 			location.setLongitude(y);
 			locations.add(location);
