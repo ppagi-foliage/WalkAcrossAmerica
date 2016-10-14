@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,15 +27,21 @@ import com.waa.rest.entity.Location;
 		produces=MediaType.APPLICATION_JSON_VALUE,
 		consumes=MediaType.APPLICATION_JSON_VALUE)
 public class TeamResource {
-	private static final Double START_LATITUDE = 42.3601;
 	
-	private static final Double START_LONGITUDE = -71.0589;
+	@Value("${map.start.latitude}")
+	private Double startLatitude;
 	
-	private static final Double END_LATITUDE = 37.7749;
+	@Value("${map.start.longitude}")
+	private Double startLongitude;
 	
-	private static final Double END_LONGITUDE = -122.4194;
+	@Value("${map.end.latitude}")
+	private Double endLatitude;
 	
-	private static final Integer TOTAL_STEPS = 6000000;
+	@Value("${map.end.longitude}")
+	private Double endLongitude;
+	
+	@Value("${map.steps.total}")
+	private Integer totalSteps;
 	
 	private static final String[] COLORS = {"BLACK","BLUE","CYAN","GRAY","GREEN","MAGENTA","ORANGE",
 			"PINK","RED","WHITE","YELLOW"};
@@ -68,8 +75,8 @@ public class TeamResource {
 				}
 			}
 			// Co-ordinate calculations			
-			Double x = START_LATITUDE+(location.getTotalStepCount())*(END_LATITUDE - START_LATITUDE) / TOTAL_STEPS;
-			Double y = START_LONGITUDE+(location.getTotalStepCount())*(END_LONGITUDE - START_LONGITUDE) / TOTAL_STEPS;
+			Double x = startLatitude+(location.getTotalStepCount())*(endLatitude - startLatitude) / totalSteps;
+			Double y = startLongitude+(location.getTotalStepCount())*(endLongitude - startLongitude) / totalSteps;
 			location.setLatitude(x);
 			location.setLongitude(y);
 			locations.add(location);
