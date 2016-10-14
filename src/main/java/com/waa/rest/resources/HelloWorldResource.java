@@ -1,4 +1,4 @@
-package com.waa.core.resources;
+package com.waa.rest.resources;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

@@ -1,4 +1,4 @@
-package com.waa.core.resources;
+package com.waa.rest.resources;
 
 import java.util.List;
 
