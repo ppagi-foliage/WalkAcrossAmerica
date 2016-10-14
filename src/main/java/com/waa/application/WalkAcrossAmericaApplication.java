@@ -8,9 +8,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication 
 @ComponentScan("com.waa")
+@EnableMongoRepositories("com.waa.core.entity.dao")
 public class WalkAcrossAmericaApplication
 {
     private static Log log = LogFactory.getLog(WalkAcrossAmericaApplication.class);
