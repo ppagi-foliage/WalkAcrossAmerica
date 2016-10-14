@@ -28,11 +28,11 @@ import com.waa.rest.entity.Location;
 public class TeamResource {
 	private static final Double START_LATITUDE = 42.3601;
 	
-	private static final Double START_LONGITUDE = 71.0589;
+	private static final Double START_LONGITUDE = -71.0589;
 	
 	private static final Double END_LATITUDE = 37.7749;
 	
-	private static final Double END_LONGITUDE = 122.4194;
+	private static final Double END_LONGITUDE = -122.4194;
 	
 	private static final Integer TOTAL_STEPS = 6000000;
 	
