@@ -13,11 +13,13 @@ public class CORSConfiguration {
         return new WebMvcConfigurerAdapter()  {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-            	final String UI_SERVER = "http://localhost:9082";
-            	final String[] mappings = {"/hello/**","/team/**","/member/**","/step/**"};            	
-                for (String mapping : mappings) {
-                	registry.addMapping(mapping).allowedOrigins(UI_SERVER).allowedMethods("GET","PUT","POST","DELETE");
-				}
+            	final String[] servers = {"http://localhost:9082","http://webapp:9082"};
+            	final String[] mappings = {"/hello/**","/team/**","/member/**","/step/**"};
+            	for(String server: servers){
+	                for (String mapping : mappings) {
+	                	registry.addMapping(mapping).allowedOrigins(server).allowedMethods("GET","PUT","POST","DELETE");
+					}
+            	}
             }
         };
     }
